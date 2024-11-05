@@ -1,0 +1,69 @@
+{
+  "name": "@alignui/cli",
+  "version": "0.0.1-alpha.19",
+  "description": "A command line interface to setup AlignUI",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "tsup --watch",
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "format:write": "prettier --write \"**/*.{ts,tsx,mdx}\" --cache",
+    "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache",
+    "prepare": "husky install",
+    "prepublishOnly": "pnpm build"
+  },
+  "bin": "./dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dgknca/alignui-cli.git"
+  },
+  "keywords": [
+    "cli",
+    "alignui",
+    "design system"
+  ],
+  "files": [
+    "dist"
+  ],
+  "author": "dgknca",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dgknca/alignui-cli/issues"
+  },
+  "homepage": "https://alignui.com",
+  "dependencies": {
+    "@antfu/ni": "^0.22.4",
+    "@babel/core": "^7.25.2",
+    "@babel/parser": "^7.25.3",
+    "@clack/prompts": "^0.7.0",
+    "commander": "^12.1.0",
+    "culori": "^4.0.1",
+    "execa": "^9.3.1",
+    "fast-glob": "^3.3.2",
+    "fs-extra": "^11.2.0",
+    "lodash.template": "^4.5.0",
+    "ts-morph": "^23.0.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.7",
+    "@commitlint/cli": "^19.4.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@types/babel__core": "^7.20.5",
+    "@types/culori": "^2.1.1",
+    "@types/diff": "^5.2.1",
+    "@types/fs-extra": "^11.0.4",
+    "@types/lodash.template": "^4.5.3",
+    "@types/prompts": "^2.4.9",
+    "@typescript-eslint/parser": "^8.1.0",
+    "eslint": "^9.9.0",
+    "eslint-config-prettier": "^9.1.0",
+    "husky": "^8.0.0",
+    "prettier": "^3.3.3",
+    "rimraf": "^6.0.1",
+    "tsup": "^8.2.4",
+    "type-fest": "^4.24.0",
+    "typescript": "^5.5.4"
+  }
+}
