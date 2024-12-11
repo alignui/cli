@@ -111,22 +111,56 @@ export const GLOBALS_CSS = `@tailwind base;
 @layer base {
   /*#region Colors */
   :root {
-    --neutral-950: <%- neutral[950] %>;
-    --neutral-900: <%- neutral[900] %>;
-    --neutral-800: <%- neutral[800] %>;
-    --neutral-700: <%- neutral[700] %>;
-    --neutral-600: <%- neutral[600] %>;
-    --neutral-500: <%- neutral[500] %>;
-    --neutral-400: <%- neutral[400] %>;
-    --neutral-300: <%- neutral[300] %>;
-    --neutral-200: <%- neutral[200] %>;
-    --neutral-100: <%- neutral[100] %>;
-    --neutral-50: <%- neutral[50] %>;
-    --neutral-0: <%- neutral[0] %>;
+    --gray-950: <%- gray[950] %>;
+    --gray-900: <%- gray[900] %>;
+    --gray-800: <%- gray[800] %>;
+    --gray-700: <%- gray[700] %>;
+    --gray-600: <%- gray[600] %>;
+    --gray-500: <%- gray[500] %>;
+    --gray-400: <%- gray[400] %>;
+    --gray-300: <%- gray[300] %>;
+    --gray-200: <%- gray[200] %>;
+    --gray-100: <%- gray[100] %>;
+    --gray-50: <%- gray[50] %>;
+    --gray-0: <%- gray[0] %>;
 
-    --neutral-alpha-24: <%- neutral['alpha-24'] %>;
-    --neutral-alpha-16: <%- neutral['alpha-16'] %>;
-    --neutral-alpha-10: <%- neutral['alpha-10'] %>;
+    --gray-alpha-24: <%- gray['alpha-24'] %>;
+    --gray-alpha-16: <%- gray['alpha-16'] %>;
+    --gray-alpha-10: <%- gray['alpha-10'] %>;
+    
+    --slate-950: <%- slate[950] %>;
+    --slate-900: <%- slate[900] %>;
+    --slate-800: <%- slate[800] %>;
+    --slate-700: <%- slate[700] %>;
+    --slate-600: <%- slate[600] %>;
+    --slate-500: <%- slate[500] %>;
+    --slate-400: <%- slate[400] %>;
+    --slate-300: <%- slate[300] %>;
+    --slate-200: <%- slate[200] %>;
+    --slate-100: <%- slate[100] %>;
+    --slate-50: <%- slate[50] %>;
+    --slate-0: <%- slate[0] %>;
+
+    --slate-alpha-24: <%- slate['alpha-24'] %>;
+    --slate-alpha-16: <%- slate['alpha-16'] %>;
+    --slate-alpha-10: <%- slate['alpha-10'] %>;
+
+    --neutral-950: var(--<%- neutralColor %>-950);
+    --neutral-900: var(--<%- neutralColor %>-900);
+    --neutral-800: <var(--<%- neutralColor %>-800);
+    --neutral-700: var(--<%- neutralColor %>-700);
+    --neutral-600: var(--<%- neutralColor %>-600);
+    --neutral-500: var(--<%- neutralColor %>-500);
+    --neutral-400: var(--<%- neutralColor %>-400);
+    --neutral-300: var(--<%- neutralColor %>-300);
+    --neutral-200: var(--<%- neutralColor %>-200);
+    --neutral-100: var(--<%- neutralColor %>-100);
+    --neutral-50: var(--<%- neutralColor %>-50);
+    --neutral-0: var(--<%- neutralColor %>-0);
+
+    --neutral-alpha-24: var(--<%- neutralColor %>-alpha-24);
+    --neutral-alpha-16: var(--<%- neutralColor %>-alpha-16);
+    --neutral-alpha-10: var(--<%- neutralColor %>-alpha-10);
 
     --blue-950: <%- blue[950] %>;
     --blue-900: <%- blue[900] %>;
@@ -280,7 +314,10 @@ export const GLOBALS_CSS = `@tailwind base;
     --black-alpha-16: <%- black['alpha-16'] %>;
     --black-alpha-10: <%- black['alpha-10'] %>;
 
-    --overlay: <%- overlay['default-light'] %>;
+    --overlay-gray: <%- overlay['gray-light'] %>;
+    --overlay-slate: <%- overlay['slate-light'] %>;
+
+    --overlay: var(--overlay-<%- neutralColor %>);
 
     --social-apple: <%- social['apple-light'] %>;
     --social-twitter: <%- social['twitter-light'] %>;
@@ -438,7 +475,10 @@ export const GLOBALS_CSS = `@tailwind base;
     --stable-light: var(--teal-alpha-24);
     --stable-lighter: var(--teal-alpha-16);
 
-    --overlay: <%- overlay['default-dark'] %>;
+    --overlay-gray: <%- overlay['gray-dark'] %>;
+    --overlay-slate: <%- overlay['slate-dark'] %>;
+    
+    --overlay: var(--overlay-<%- neutralColor %>);
     
     --social-apple: <%- social['apple-dark'] %>;
     --social-twitter: <%- social['twitter-dark'] %>;

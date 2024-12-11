@@ -26,6 +26,7 @@ export async function getProjectConfig(cwd: string): Promise<Config | null> {
     tailwind: {
       config: isTsx ? 'tailwind.config.ts' : 'tailwind.config.js',
       primaryColor: 'blue',
+      neutralColor: 'gray',
       colorFormat: 'hex',
       css: tailwindCssFile,
       prefix: '',
