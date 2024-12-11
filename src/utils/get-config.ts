@@ -10,6 +10,7 @@ export const rawConfigSchema = z
       config: z.string(),
       css: z.string(),
       primaryColor: z.enum(['blue', 'purple', 'orange', 'sky']),
+      neutralColor: z.enum(['gray', 'slate']),
       colorFormat: z.enum(['hex', 'rgb', 'hsl']),
       prefix: z.string().default('').optional(),
     }),

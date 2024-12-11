@@ -81,6 +81,16 @@ async function promptForConfig(cwd: string, defaultConfig: Config) {
 
   if (isCancel(primaryColor)) process.exit(0);
 
+  const neutralColor = await select({
+    message: 'Which color would you like to use as neutral color?',
+    options: [
+      { value: 'gray', label: 'Gray' },
+      { value: 'slate', label: 'Slate' },
+    ],
+  });
+
+  if (isCancel(neutralColor)) process.exit(0);
+
   const colorFormat = await select({
     message: 'Which color format would you like to use?',
     options: [
@@ -113,6 +123,7 @@ async function promptForConfig(cwd: string, defaultConfig: Config) {
       config: tailwindConfig,
       css: tailwindCss,
       primaryColor: primaryColor,
+      neutralColor: neutralColor,
       colorFormat: colorFormat,
       prefix: tailwindPrefix,
     },
@@ -208,6 +219,7 @@ async function runInit(cwd: string, config: Config) {
       config.resolvedPaths.tailwindCss,
       template(templates.GLOBALS_CSS)({
         primaryColor: config.tailwind.primaryColor,
+        neutralColor: config.tailwind.neutralColor,
         ...colorVariables,
       }),
       'utf8',
