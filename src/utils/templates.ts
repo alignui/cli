@@ -147,7 +147,7 @@ export const GLOBALS_CSS = `@tailwind base;
 
     --neutral-950: var(--<%- neutralColor %>-950);
     --neutral-900: var(--<%- neutralColor %>-900);
-    --neutral-800: <var(--<%- neutralColor %>-800);
+    --neutral-800: var(--<%- neutralColor %>-800);
     --neutral-700: var(--<%- neutralColor %>-700);
     --neutral-600: var(--<%- neutralColor %>-600);
     --neutral-500: var(--<%- neutralColor %>-500);
