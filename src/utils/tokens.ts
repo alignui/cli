@@ -784,6 +784,42 @@ export const shadows = {
   'toggle-switch': ['0 6px 10px 0 #0e121b0f', '0 2px 4px 0 #0e121b08'],
   'switch-thumb': ['0 4px 8px 0 #1b1c1d0f', '0 2px 4px 0 #0e121b14'],
   tooltip: ['0 12px 24px 0 #0e121b0f', '0 1px 2px 0 #0e121b08'],
+  'custom-xs': [
+    '0 0 0 1px rgba(51, 51, 51, 0.04)',
+    '0 4px 8px -2px rgba(51, 51, 51, 0.06)',
+    '0 2px 4px rgba(51, 51, 51, 0.04)',
+    '0 1px 2px rgba(51, 51, 51, 0.04)',
+    'inset 0 -1px 1px -0.5px rgba(51, 51, 51, 0.06)',
+  ],
+  'custom-sm': [
+    '0 0 0 1px rgba(51, 51, 51, 0.04)',
+    '0 16px 8px -8px rgba(51, 51, 51, 0.01)',
+    '0 12px 6px -6px rgba(51, 51, 51, 0.02)',
+    '0 5px 5px -2.5px rgba(51, 51, 51, 0.08)',
+    '0 1px 3px -1.5px rgba(51, 51, 51, 0.16)',
+    'inset 0 -0.5px 0.5px rgba(51, 51, 51, 0.08)',
+  ],
+  'custom-md': [
+    '0 0 0 1px rgba(51, 51, 51, 0.04)',
+    '0 1px 1px 0.5px rgba(51, 51, 51, 0.04)',
+    '0 3px 3px -1.5px rgba(51, 51, 51, 0.02)',
+    '0 6px 6px -3px rgba(51, 51, 51, 0.04)',
+    '0 12px 12px -6px rgba(51, 51, 51, 0.04)',
+    '0 24px 24px -12px rgba(51, 51, 51, 0.04)',
+    '0 48px 48px -24px rgba(51, 51, 51, 0.04)',
+    'inset 0 -1px 1px -0.5px rgba(51, 51, 51, 0.06)',
+  ],
+  'custom-lg': [
+    '0 0 0 1px rgba(51, 51, 51, 0.04)',
+    '0 1px 1px 0.5px rgba(51, 51, 51, 0.04)',
+    '0 3px 3px -1.5px rgba(51, 51, 51, 0.02)',
+    '0 6px 6px -3px rgba(51, 51, 51, 0.04)',
+    '0 12px 12px -6px rgba(51, 51, 51, 0.04)',
+    '0 24px 24px -12px rgba(51, 51, 51, 0.04)',
+    '0 48px 48px -24px rgba(51, 51, 51, 0.04)',
+    '0 96px 96px -32px rgba(51, 51, 51, 0.06)',
+    'inset 0 -1px 1px -0.5px rgba(51, 51, 51, 0.06)',
+  ],
 };
 
 export const animations = {
