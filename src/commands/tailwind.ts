@@ -177,6 +177,9 @@ async function runInit(cwd: string, config: Config) {
   try {
     // Ensure necessary directories exist
     for (const [key, resolvedPath] of Object.entries(config.resolvedPaths)) {
+      // Skip undefined paths (e.g., when config file is not created)
+      if (!resolvedPath) continue;
+
       const dirname = path.extname(resolvedPath)
         ? path.dirname(resolvedPath)
         : resolvedPath;
