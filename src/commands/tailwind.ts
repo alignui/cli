@@ -26,9 +26,16 @@ import {
   animations,
 } from '@/src/utils/tokens';
 import { prettierFormat } from '@/src/utils/prettier';
-import { formatHslColor, formatRgbColor } from '@/src/utils/color-helpers';
+import {
+  formatHslColor,
+  formatRgbColor,
+  formatOklchColor,
+} from '@/src/utils/color-helpers';
 
-const PROJECT_DEV_DEPENDENCIES = ['tailwindcss-animate'];
+const PROJECT_DEV_DEPENDENCIES = [
+  'tailwindcss@next',
+  '@tailwindcss/postcss@next',
+];
 
 const tailwindInitOptionsSchema = z.object({
   cwd: z.string(),
@@ -94,6 +101,7 @@ async function promptForConfig(cwd: string, defaultConfig: Config) {
   const colorFormat = await select({
     message: 'Which color format would you like to use?',
     options: [
+      { value: 'oklch', label: 'oklch (Recommended for Tailwind v4.1)' },
       { value: 'hex', label: 'hex' },
       { value: 'rgb', label: 'rgb' },
       { value: 'hsl', label: 'hsl' },
@@ -108,10 +116,29 @@ async function promptForConfig(cwd: string, defaultConfig: Config) {
 
   if (isCancel(tailwindPrefix)) process.exit(0);
 
-  const tailwindConfig = await text({
-    message: 'Where is your tailwind config file?',
-    initialValue: defaultConfig?.tailwind.config ?? DEFAULT_TAILWIND_CONFIG,
+  const createConfigFile = await select({
+    message:
+      'Create tailwind.config file? (Optional in v4.1 - CSS-first configuration)',
+    options: [
+      {
+        value: false,
+        label: 'No - Use CSS-only configuration (Recommended for v4.1)',
+      },
+      { value: true, label: 'Yes - Create minimal config file' },
+    ],
   });
+
+  if (isCancel(createConfigFile)) process.exit(0);
+
+  let tailwindConfig = '';
+  if (createConfigFile) {
+    const configPath = await text({
+      message: 'Where should we create your tailwind config file?',
+      initialValue: defaultConfig?.tailwind.config ?? DEFAULT_TAILWIND_CONFIG,
+    });
+    if (isCancel(configPath)) process.exit(0);
+    tailwindConfig = configPath;
+  }
 
   const tailwindCss = await text({
     message: 'Where is your global CSS file?',
@@ -158,47 +185,21 @@ async function runInit(cwd: string, config: Config) {
       }
     }
 
-    // Generate Tailwind config file
-    const tailwindConfigTemplate =
-      path.extname(config.resolvedPaths.tailwindConfig) === '.ts'
-        ? templates.TAILWIND_CONFIG_TS
-        : templates.TAILWIND_CONFIG_JS;
+    // Generate Tailwind config file (v4.1 - Optional)
+    if (config.resolvedPaths.tailwindConfig) {
+      const tailwindConfigTemplate =
+        path.extname(config.resolvedPaths.tailwindConfig) === '.ts'
+          ? templates.TAILWIND_CONFIG_TS
+          : templates.TAILWIND_CONFIG_JS;
 
-    let tailwindColorsInSelectedFormat =
-      config.tailwind.colorFormat === 'rgb'
-        ? tailwindColorsRgb
-        : config.tailwind.colorFormat === 'hsl'
-          ? tailwindColorsHsl
-          : tailwindColorsHex;
-
-    let textValues = texts;
-    let shadowValues = shadows;
-
-    if (config.tailwind.prefix) {
-      tailwindColorsInSelectedFormat = applyPrefixToKeys(
-        tailwindColorsInSelectedFormat,
-        config.tailwind.prefix,
+      await fs.writeFile(
+        config.resolvedPaths.tailwindConfig,
+        await prettierFormat(tailwindConfigTemplate),
+        'utf8',
       );
-      textValues = applyPrefixToKeys(texts, config.tailwind.prefix);
-      shadowValues = applyPrefixToKeys(shadows, config.tailwind.prefix);
     }
 
-    await fs.writeFile(
-      config.resolvedPaths.tailwindConfig,
-      await prettierFormat(
-        template(tailwindConfigTemplate)({
-          prefix: config.tailwind.prefix,
-          colors: JSON.stringify(tailwindColorsInSelectedFormat, null, 2),
-          borderRadii: JSON.stringify(borderRadii, null, 2),
-          texts: JSON.stringify(textValues, null, 2),
-          shadows: JSON.stringify(shadowValues, null, 2),
-          animations: JSON.stringify(animations, null, 2),
-        }),
-      ),
-      'utf8',
-    );
-
-    // Write color variables in selected format to global CSS
+    // Write CSS-first configuration with all AlignUI colors and tokens
     const colorVariables = Object.fromEntries(
       Object.entries(rawHexColors).map(([colorName, shades]) => [
         colorName,
@@ -208,6 +209,8 @@ async function runInit(cwd: string, config: Config) {
               return [shade, formatHslColor(hex)];
             } else if (config.tailwind.colorFormat === 'rgb') {
               return [shade, formatRgbColor(hex)];
+            } else if (config.tailwind.colorFormat === 'oklch') {
+              return [shade, formatOklchColor(hex)];
             }
             return [shade, hex];
           }),
@@ -215,12 +218,27 @@ async function runInit(cwd: string, config: Config) {
       ]),
     );
 
+    // Apply prefix if specified
+    const prefixedTokens = config.tailwind.prefix
+      ? {
+          texts: applyPrefixToKeys(texts, config.tailwind.prefix),
+          shadows: applyPrefixToKeys(shadows, config.tailwind.prefix),
+          borderRadii: applyPrefixToKeys(borderRadii, config.tailwind.prefix),
+          animations: applyPrefixToKeys(animations, config.tailwind.prefix),
+        }
+      : { texts, shadows, borderRadii, animations };
+
     await fs.writeFile(
       config.resolvedPaths.tailwindCss,
       template(templates.GLOBALS_CSS)({
+        config: config, // Config objesini template'e geçiriyoruz
         primaryColor: config.tailwind.primaryColor,
         neutralColor: config.tailwind.neutralColor,
         ...colorVariables,
+        texts: JSON.stringify(prefixedTokens.texts, null, 2),
+        shadows: JSON.stringify(prefixedTokens.shadows, null, 2),
+        borderRadii: JSON.stringify(prefixedTokens.borderRadii, null, 2),
+        animations: JSON.stringify(prefixedTokens.animations, null, 2),
       }),
       'utf8',
     );
