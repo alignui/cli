@@ -312,7 +312,10 @@ export const GLOBALS_CSS = `<%- config.tailwind.prefix ? \`@import "tailwindcss"
   /* AlignUI Typography System - Dynamic from tokens.ts */
   <% Object.entries(JSON.parse(texts)).forEach(([key, value]) => { %>
   --font-size-<%- key %>: <%- Array.isArray(value) ? value[0] : value %>;
-  <% if (Array.isArray(value) && value[1]) { %>--line-height-<%- key %>: <%- value[1] %>;<% } %>
+  <% if (Array.isArray(value) && value[1] && typeof value[1] === 'object') { %>--line-height-<%- key %>: <%- value[1].lineHeight %>;
+  <% if (value[1].letterSpacing) { %>--letter-spacing-<%- key %>: <%- value[1].letterSpacing %>;<% } %>
+  <% if (value[1].fontWeight) { %>--font-weight-<%- key %>: <%- value[1].fontWeight %>;<% } %>
+  <% } else if (Array.isArray(value) && value[1]) { %>--line-height-<%- key %>: <%- value[1] %>;<% } %>
   <% }); %>
 
   /* AlignUI Shadow System - Dynamic from tokens.ts */

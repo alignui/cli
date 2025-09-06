@@ -37,6 +37,13 @@ This command will:
 > [!NOTE]  
 > A CSS file with Tailwind directives and a `tailwind.config` file must exist in your project.
 
+## What's New in v0.0.6
+
+- 🐛 **Bug Fixes**: Fixed typography [object Object] rendering issues
+- 🔧 **Complete Typography System**: All typography properties (fontSize, lineHeight, letterSpacing, fontWeight) now properly exported
+- 🔄 **Backward Compatibility**: Legacy TypeScript exports available for v0.0.2 migration
+- ✨ **Enhanced Shadow System**: Fixed theme() references for Tailwind v4.1 compatibility
+
 ## What's New in v0.0.3
 
 - ✨ **Tailwind CSS v4.1 Support**: Full compatibility with the latest Tailwind CSS
@@ -44,6 +51,17 @@ This command will:
 - 🌈 **OKLCH Color System**: Modern color space for more vivid colors (default)
 - ⚡ **Simplified Setup**: Streamlined installation process
 - 🔧 **Modern CSS Features**: Support for cascade layers and advanced CSS properties
+
+## Migration from v0.0.2
+
+If you're migrating from v0.0.2, you can still use TypeScript exports for backward compatibility:
+
+```typescript
+// For backward compatibility
+import { texts, shadows, borderRadii } from '@alignui/cli/legacy-exports';
+```
+
+However, we recommend using the new CSS-first approach with `@theme` variables for better performance and Tailwind v4.1 compatibility.
 
 ## License
 
