@@ -27,7 +27,7 @@ export async function getProjectConfig(cwd: string): Promise<Config | null> {
       config: isTsx ? 'tailwind.config.ts' : 'tailwind.config.js',
       primaryColor: 'blue',
       neutralColor: 'gray',
-      colorFormat: 'hex',
+      colorFormat: 'oklch',
       css: tailwindCssFile,
       prefix: '',
     },
@@ -49,8 +49,11 @@ export async function getTailwindCssFile(cwd: string) {
 
   for (const file of files) {
     const contents = await fs.readFile(path.resolve(cwd, file), 'utf8');
-    // Assume that if the file contains `@tailwind base` it's the main css file.
-    if (contents.includes('@tailwind base')) {
+    // Check for both v3 (@tailwind base) and v4 (@import "tailwindcss") formats
+    if (
+      contents.includes('@tailwind base') ||
+      contents.includes('@import "tailwindcss"')
+    ) {
       return file;
     }
   }
@@ -64,16 +67,13 @@ export async function isTypeScriptProject(cwd: string) {
 }
 
 export async function preFlight(cwd: string) {
-  // We need Tailwind CSS to be configured.
-  const tailwindConfig = await fg.glob('tailwind.config.*', {
-    cwd,
-    deep: 3,
-    ignore: PROJECT_SHARED_IGNORE,
-  });
+  // In Tailwind v4, config files are optional due to CSS-first configuration
+  // We only check if there's a CSS file with Tailwind directives
+  const tailwindCssFile = await getTailwindCssFile(cwd);
 
-  if (!tailwindConfig.length) {
+  if (!tailwindCssFile) {
     throw new Error(
-      'Tailwind config file not found. Create a "tailwind.config.{js,ts}" file to get started.',
+      'No CSS file found with Tailwind directives. Create a CSS file with "@import \'tailwindcss\';" or "@tailwind base;" to get started.',
     );
   }
 
