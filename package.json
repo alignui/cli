@@ -1,6 +1,6 @@
 {
   "name": "@alignui/cli",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A command line interface to setup AlignUI with Tailwind CSS v4.1 support",
   "main": "dist/index.js",
   "type": "module",
