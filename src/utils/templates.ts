@@ -19,7 +19,7 @@ const config = {
 
 export default config;`;
 
-export const GLOBALS_CSS = `<%- config.tailwind.prefix ? \`@import "tailwindcss" prefix(\${config.tailwind.prefix});\` : '@import "tailwindcss";' %>
+export const GLOBALS_CSS = `<% if (config.tailwind.prefix) { %>@import "tailwindcss" prefix(<%= config.tailwind.prefix %>);<% } else { %>@import "tailwindcss";<% } %>
 
 @theme {
   /* AlignUI Raw Colors */
