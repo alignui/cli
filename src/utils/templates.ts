@@ -19,6 +19,19 @@ const config = {
 
 export default config;`;
 
+// PostCSS Configuration for Tailwind v4.1 (ESM format)
+export const POSTCSS_CONFIG_MJS = `const config = {
+  plugins: {
+    "@tailwindcss/postcss": {
+      sources: {
+        negated: false,
+      },
+    },
+  },
+};
+
+export default config;`;
+
 export const GLOBALS_CSS = `<% if (config.tailwind.prefix) { %>@import "tailwindcss" prefix(<%= config.tailwind.prefix %>);<% } else { %>@import "tailwindcss";<% } %>
 
 @theme {
