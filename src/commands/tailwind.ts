@@ -9,6 +9,7 @@ import { intro, outro, text, select, isCancel, spinner } from '@clack/prompts';
 import {
   DEFAULT_TAILWIND_CONFIG,
   DEFAULT_TAILWIND_CSS,
+  DEFAULT_POSTCSS_CONFIG,
   rawConfigSchema,
   resolveConfigPaths,
   type Config,
@@ -33,8 +34,8 @@ import {
 } from '@/src/utils/color-helpers';
 
 const PROJECT_DEV_DEPENDENCIES = [
-  'tailwindcss@next',
-  '@tailwindcss/postcss@next',
+  'tailwindcss@latest',
+  '@tailwindcss/postcss@latest',
 ];
 
 const tailwindInitOptionsSchema = z.object({
@@ -187,6 +188,14 @@ async function runInit(cwd: string, config: Config) {
         await fs.mkdir(dirname, { recursive: true });
       }
     }
+
+    // Generate PostCSS config file (Required for v4.1)
+    const postcssConfigTemplate = templates.POSTCSS_CONFIG_MJS;
+    await fs.writeFile(
+      config.resolvedPaths.postcssConfig,
+      await prettierFormat(postcssConfigTemplate),
+      'utf8',
+    );
 
     // Generate Tailwind config file (v4.1 - Optional)
     if (config.resolvedPaths.tailwindConfig) {

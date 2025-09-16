@@ -3,6 +3,7 @@ import { z } from 'zod';
 
 export const DEFAULT_TAILWIND_CSS = 'app/globals.css';
 export const DEFAULT_TAILWIND_CONFIG = 'tailwind.config.js';
+export const DEFAULT_POSTCSS_CONFIG = 'postcss.config.mjs';
 
 export const rawConfigSchema = z
   .object({
@@ -23,6 +24,7 @@ export const configSchema = rawConfigSchema.extend({
   resolvedPaths: z.object({
     tailwindConfig: z.string().optional(), // Optional in v4.1
     tailwindCss: z.string(),
+    postcssConfig: z.string(), // Required for v4.1
   }),
 });
 
@@ -36,6 +38,7 @@ export async function resolveConfigPaths(cwd: string, config: RawConfig) {
         ? path.resolve(cwd, config.tailwind.config)
         : undefined,
       tailwindCss: path.resolve(cwd, config.tailwind.css),
+      postcssConfig: path.resolve(cwd, DEFAULT_POSTCSS_CONFIG),
     },
   });
 }
