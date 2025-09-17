@@ -573,4 +573,13 @@ export const GLOBALS_CSS = `<% if (config.tailwind.prefix) { %>@import "tailwind
   transform: scale(0.8996);
   transform-origin: center;
 }
+
+/* AlignUI Body Styles */
+body {
+  background: var(--color-bg-white-0);
+  color: var(--color-text-strong-950);
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
 `;
