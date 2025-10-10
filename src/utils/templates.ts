@@ -324,11 +324,11 @@ export const GLOBALS_CSS = `<% if (config.tailwind.prefix) { %>@import "tailwind
 
   /* AlignUI Typography System - Dynamic from tokens.ts */
   <% Object.entries(JSON.parse(texts)).forEach(([key, value]) => { %>
-  --font-size-<%- key %>: <%- Array.isArray(value) ? value[0] : value %>;
-  <% if (Array.isArray(value) && value[1] && typeof value[1] === 'object') { %>--line-height-<%- key %>: <%- value[1].lineHeight %>;
-  <% if (value[1].letterSpacing) { %>--letter-spacing-<%- key %>: <%- value[1].letterSpacing %>;<% } %>
-  <% if (value[1].fontWeight) { %>--font-weight-<%- key %>: <%- value[1].fontWeight %>;<% } %>
-  <% } else if (Array.isArray(value) && value[1]) { %>--line-height-<%- key %>: <%- value[1] %>;<% } %>
+  --text-<%- key %>: <%- Array.isArray(value) ? value[0] : value %>;
+  <% if (Array.isArray(value) && value[1] && typeof value[1] === 'object') { %>--text-<%- key %>--line-height: <%- value[1].lineHeight %>;
+  <% if (value[1].letterSpacing) { %>--text-<%- key %>--letter-spacing: <%- value[1].letterSpacing %>;<% } %>
+  <% if (value[1].fontWeight) { %>--text-<%- key %>--font-weight: <%- value[1].fontWeight %>;<% } %>
+  <% } else if (Array.isArray(value) && value[1]) { %>--text-<%- key %>--line-height: <%- value[1] %>;<% } %>
   <% }); %>
 
   /* AlignUI Shadow System - Dynamic from tokens.ts */
