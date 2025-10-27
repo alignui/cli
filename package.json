@@ -1,6 +1,6 @@
 {
   "name": "@alignui/cli",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "A command line interface to setup AlignUI with Tailwind CSS v4.1 support",
   "main": "dist/index.js",
   "type": "module",
@@ -16,7 +16,7 @@
   "bin": "./dist/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dgknca/alignui-cli.git"
+    "url": "git+https://github.com/alignui/cli"
   },
   "keywords": [
     "cli",
@@ -26,10 +26,10 @@
   "files": [
     "dist"
   ],
-  "author": "dgknca",
+  "author": "tolunaydonmez",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dgknca/alignui-cli/issues"
+    "url": "https://github.com/alignui/cli/issues"
   },
   "homepage": "https://alignui.com",
   "dependencies": {
