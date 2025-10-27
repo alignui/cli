@@ -47,8 +47,8 @@ export function formatOklchColor(hex: string): string {
   const h = color.h !== undefined ? color.h.toFixed(2) : '0';
 
   if (color.alpha !== undefined && color.alpha !== 1) {
-    return `${l} ${c} ${h} / ${percentageFormat(color.alpha)}`;
+    return `oklch(${l} ${c} ${h} / ${percentageFormat(color.alpha)})`;
   }
 
-  return `${l} ${c} ${h}`;
+  return `oklch(${l} ${c} ${h})`;
 }
