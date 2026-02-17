@@ -24,6 +24,8 @@ import {
   borderRadii,
   texts,
   shadows,
+  blockShadows,
+  darkBlockShadows,
   animations,
 } from '@/src/utils/tokens';
 import { prettierFormat } from '@/src/utils/prettier';
@@ -235,20 +237,38 @@ async function runInit(cwd: string, config: Config) {
       ? {
           texts: applyPrefixToKeys(texts, config.tailwind.prefix),
           shadows: applyPrefixToKeys(shadows, config.tailwind.prefix),
+          blockShadows: applyPrefixToKeys(blockShadows, config.tailwind.prefix),
+          darkBlockShadows: applyPrefixToKeys(
+            darkBlockShadows,
+            config.tailwind.prefix,
+          ),
           borderRadii: applyPrefixToKeys(borderRadii, config.tailwind.prefix),
           animations: applyPrefixToKeys(animations, config.tailwind.prefix),
         }
-      : { texts, shadows, borderRadii, animations };
+      : {
+          texts,
+          shadows,
+          blockShadows,
+          darkBlockShadows,
+          borderRadii,
+          animations,
+        };
 
     await fs.writeFile(
       config.resolvedPaths.tailwindCss,
       template(templates.GLOBALS_CSS)({
-        config: config, // Config objesini template'e geçiriyoruz
+        config: config,
         primaryColor: config.tailwind.primaryColor,
         neutralColor: config.tailwind.neutralColor,
         ...colorVariables,
         texts: JSON.stringify(prefixedTokens.texts, null, 2),
         shadows: JSON.stringify(prefixedTokens.shadows, null, 2),
+        blockShadows: JSON.stringify(prefixedTokens.blockShadows, null, 2),
+        darkBlockShadows: JSON.stringify(
+          prefixedTokens.darkBlockShadows,
+          null,
+          2,
+        ),
         borderRadii: JSON.stringify(prefixedTokens.borderRadii, null, 2),
         animations: JSON.stringify(prefixedTokens.animations, null, 2),
       }),

@@ -659,6 +659,14 @@ export const texts = {
       fontWeight: '500',
     },
   ],
+  'label-2xs': [
+    '.6875rem',
+    {
+      lineHeight: '1rem',
+      letterSpacing: '0em',
+      fontWeight: '500',
+    },
+  ],
 
   'paragraph-xl': [
     '1.5rem',
@@ -820,6 +828,202 @@ export const shadows = {
     '0 96px 96px -32px rgba(51, 51, 51, 0.06)',
     'inset 0 -1px 1px -0.5px rgba(51, 51, 51, 0.06)',
   ],
+};
+
+export const blockShadows = {
+  'complex-12': [
+    '0 80px 80px -40px rgba(23, 23, 23, 0.04)',
+    '0 48px 48px -24px rgba(23, 23, 23, 0.04)',
+  ],
+  complex: [
+    '0 20px 20px -10px rgba(23, 23, 23, 0.04)',
+    '0 10px 10px -5px rgba(23, 23, 23, 0.04)',
+    '0 6px 6px -3px rgba(23, 23, 23, 0.04)',
+    '0 3px 3px -1.5px rgba(23, 23, 23, 0.04)',
+    '0 1px 1px -0.5px rgba(23, 23, 23, 0.04)',
+    '0 0 0 1px rgba(23, 23, 23, 0.08)',
+    '0 -1px 1px -0.5px rgba(23, 23, 23, 0.06) inset',
+  ],
+  'complex-2': [
+    '0 10px 10px -5px rgba(23, 23, 23, 0.02)',
+    '0 6px 6px -3px rgba(23, 23, 23, 0.04)',
+    '0 3px 3px -1.5px rgba(23, 23, 23, 0.04)',
+    '0 1px 1px -0.5px rgba(23, 23, 23, 0.04)',
+    '0 0 0 1px rgba(23, 23, 23, 0.02)',
+  ],
+  'complex-4': [
+    '0 3px 3px -1.5px rgba(23, 23, 23, 0.04)',
+    '0 1px 1px -0.5px rgba(23, 23, 23, 0.04)',
+    '0 0 0 1px rgba(23, 23, 23, 0.02)',
+  ],
+  'complex-5': [
+    '0 0 6px 0 rgba(255, 255, 255, 0.24) inset',
+    '0 40px 40px -20px rgba(23, 23, 23, 0.06)',
+    '0 10px 10px -5px rgba(23, 23, 23, 0.06)',
+    '0 6px 6px -3px rgba(23, 23, 23, 0.04)',
+    '0 3px 3px -1.5px rgba(23, 23, 23, 0.04)',
+    '0 1px 1px -0.5px rgba(23, 23, 23, 0.04)',
+  ],
+  'complex-6': [
+    '0 40px 40px -20px rgba(23, 23, 23, 0.06)',
+    '0 10px 10px -5px rgba(23, 23, 23, 0.06)',
+    '0 6px 6px -3px rgba(23, 23, 23, 0.04)',
+    '0 3px 3px -1.5px rgba(23, 23, 23, 0.04)',
+    '0 1px 1px -0.5px rgba(23, 23, 23, 0.04)',
+    '0 0 6px 0 rgba(255, 255, 255, 0.24) inset',
+  ],
+  'complex-7': ['0 1px 2px 0 rgba(14, 18, 27, 0.24)', '0 0 0 1px #335cff'],
+  'complex-8': [
+    '0 20px 20px -10px rgba(23, 23, 23, 0)',
+    '0 10px 10px -5px rgba(23, 23, 23, 0)',
+    '0 6px 6px -3px rgba(23, 23, 23, 0)',
+    '0 3px 3px -1.5px rgba(23, 23, 23, 0)',
+    '0 1px 1px -0.5px rgba(23, 23, 23, 0)',
+    '0 0 0 1px rgba(23, 23, 23, 0.08)',
+    '0 -1px 1px -0.5px rgba(23, 23, 23, 0.06) inset',
+  ],
+  'complex-9': [
+    '0 80px 40px -20px rgba(23, 23, 23, 0.06)',
+    '0 40px 40px -20px rgba(23, 23, 23, 0.06)',
+    '0 10px 10px -5px rgba(23, 23, 23, 0.06)',
+    '0 6px 6px -3px rgba(23, 23, 23, 0.04)',
+    '0 3px 3px -1.5px rgba(23, 23, 23, 0.04)',
+    '0 1px 1px -0.5px rgba(23, 23, 23, 0.04)',
+    '0 0 6px 0 rgba(255, 255, 255, 0.04) inset',
+  ],
+  'complex-10': [
+    '0 3px 3px -1.5px rgba(23, 23, 23, 0.04)',
+    '0 1px 1px -0.5px rgba(23, 23, 23, 0.04)',
+  ],
+  'complex-11': [
+    '0 -1px 1px -0.5px rgba(23, 23, 23, 0.06) inset',
+    '0 20px 20px -10px rgba(23, 23, 23, 0.04)',
+    '0 10px 10px -5px rgba(23, 23, 23, 0.04)',
+    '0 6px 6px -3px rgba(23, 23, 23, 0.04)',
+    '0 3px 3px -1.5px rgba(23, 23, 23, 0.04)',
+    '0 1px 1px -0.5px rgba(23, 23, 23, 0.04)',
+    '0 0 0 1px rgba(23, 23, 23, 0.04)',
+  ],
+  'custom-input': [
+    '0 3px 3px -1.5px rgba(23, 23, 23, 0.04)',
+    '0 1px 1px -0.5px rgba(23, 23, 23, 0.04)',
+    '0 0 0 1px rgba(23, 23, 23, 0.08)',
+  ],
+  'custom-input-2': [
+    '0 3px 3px -1.5px rgba(23, 23, 23, 0.04)',
+    '0 1px 1px -0.5px rgba(23, 23, 23, 0.04)',
+    '0 0 0 1px var(--color-bg-soft-200)',
+  ],
+  'custom-input-4': [
+    '0 3px 3px -1.5px rgba(23, 23, 23, 0.06)',
+    '0 1px 1px -0.5px rgba(23, 23, 23, 0.06)',
+    '0 0 0 1px rgba(23, 23, 23, 0.02)',
+  ],
+  'custom-input-active': [
+    '0 6px 6px -3px rgba(23, 23, 23, 0.02)',
+    '0 3px 3px -1.5px rgba(23, 23, 23, 0.04)',
+    '0 1px 1px -0.5px rgba(23, 23, 23, 0.04)',
+    '0 0 0 1.4px #335cff',
+  ],
+  'gray-shadow': '0 0 0 1px rgba(23, 23, 23, 0.08)',
+};
+
+export const darkBlockShadows = {
+  'complex-12': [
+    '0 80px 80px -40px rgba(23, 23, 23, 0)',
+    '0 48px 48px -24px rgba(23, 23, 23, 0)',
+  ],
+  complex: [
+    '0 20px 20px -10px rgba(23, 23, 23, 0)',
+    '0 10px 10px -5px rgba(23, 23, 23, 0)',
+    '0 6px 6px -3px rgba(23, 23, 23, 0)',
+    '0 3px 3px -1.5px rgba(23, 23, 23, 0)',
+    '0 1px 1px -0.5px rgba(23, 23, 23, 0)',
+    '0 0 0 1px #262626',
+    '0 -1px 1px -0.5px rgba(23, 23, 23, 0.04) inset',
+  ],
+  'complex-2': [
+    '0 10px 10px -5px rgba(23, 23, 23, 0)',
+    '0 6px 6px -3px rgba(23, 23, 23, 0)',
+    '0 3px 3px -1.5px rgba(23, 23, 23, 0)',
+    '0 1px 1px -0.5px rgba(23, 23, 23, 0)',
+    '0 0 0 1px rgba(23, 23, 23, 0)',
+  ],
+  'complex-4': [
+    '0 3px 3px -1.5px rgba(23, 23, 23, 0.04)',
+    '0 1px 1px -0.5px rgba(23, 23, 23, 0.04)',
+    '0 0 0 1px rgba(23, 23, 23, 0.02)',
+  ],
+  'complex-5': [
+    '0 0 6px 0 rgba(255, 255, 255, 0.24) inset',
+    '0 40px 40px -20px rgba(23, 23, 23, 0.04)',
+    '0 10px 10px -5px rgba(23, 23, 23, 0.04)',
+    '0 6px 6px -3px rgba(23, 23, 23, 0)',
+    '0 3px 3px -1.5px rgba(23, 23, 23, 0)',
+    '0 1px 1px -0.5px rgba(23, 23, 23, 0)',
+  ],
+  'complex-6': [
+    '0 40px 40px -20px rgba(23, 23, 23, 0.04)',
+    '0 10px 10px -5px rgba(23, 23, 23, 0.04)',
+    '0 6px 6px -3px rgba(23, 23, 23, 0)',
+    '0 3px 3px -1.5px rgba(23, 23, 23, 0)',
+    '0 1px 1px -0.5px rgba(23, 23, 23, 0)',
+    '0 0 6px 0 rgba(255, 255, 255, 0.24) inset',
+  ],
+  'complex-7': ['0 1px 2px 0 rgba(14, 18, 27, 0.24)', '0 0 0 1px #4d82ff'],
+  'complex-8': [
+    '0 20px 20px -10px rgba(23, 23, 23, 0.04)',
+    '0 10px 10px -5px rgba(23, 23, 23, 0.04)',
+    '0 6px 6px -3px rgba(23, 23, 23, 0.04)',
+    '0 3px 3px -1.5px rgba(23, 23, 23, 0.04)',
+    '0 1px 1px -0.5px rgba(23, 23, 23, 0.04)',
+    '0 0 0 1px rgba(23, 23, 23, 0.08)',
+    '0 -1px 1px -0.5px rgba(23, 23, 23, 0.06) inset',
+  ],
+  'complex-9': [
+    '0 80px 40px -20px rgba(23, 23, 23, 0.04)',
+    '0 40px 40px -20px rgba(23, 23, 23, 0.04)',
+    '0 10px 10px -5px rgba(23, 23, 23, 0.04)',
+    '0 6px 6px -3px rgba(23, 23, 23, 0)',
+    '0 3px 3px -1.5px rgba(23, 23, 23, 0)',
+    '0 1px 1px -0.5px rgba(23, 23, 23, 0)',
+    '0 0 6px 0 rgba(255, 255, 255, 0.04) inset',
+  ],
+  'complex-10': [
+    '0 3px 3px -1.5px rgba(23, 23, 23, 0)',
+    '0 1px 1px -0.5px rgba(23, 23, 23, 0)',
+  ],
+  'complex-11': [
+    '0 -1px 1px -0.5px rgba(23, 23, 23, 0.04) inset',
+    '0 20px 20px -10px rgba(23, 23, 23, 0)',
+    '0 10px 10px -5px rgba(23, 23, 23, 0)',
+    '0 6px 6px -3px rgba(23, 23, 23, 0)',
+    '0 3px 3px -1.5px rgba(23, 23, 23, 0)',
+    '0 1px 1px -0.5px rgba(23, 23, 23, 0)',
+    '0 0 0 1px rgba(23, 23, 23, 0)',
+  ],
+  'custom-input': [
+    '0 3px 3px -1.5px rgba(23, 23, 23, 0)',
+    '0 1px 1px -0.5px rgba(23, 23, 23, 0)',
+    '0 0 0 1px #262626',
+  ],
+  'custom-input-2': [
+    '0 3px 3px -1.5px rgba(23, 23, 23, 0)',
+    '0 1px 1px -0.5px rgba(23, 23, 23, 0)',
+    '0 0 0 1px #262626',
+  ],
+  'custom-input-4': [
+    '0 3px 3px -1.5px rgba(23, 23, 23, 0.04)',
+    '0 1px 1px -0.5px rgba(23, 23, 23, 0.04)',
+    '0 0 0 1px rgba(23, 23, 23, 0)',
+  ],
+  'custom-input-active': [
+    '0 6px 6px -3px rgba(23, 23, 23, 0.02)',
+    '0 3px 3px -1.5px rgba(23, 23, 23, 0.04)',
+    '0 1px 1px -0.5px rgba(23, 23, 23, 0.04)',
+    '0 0 0 1.4px #335cff',
+  ],
+  'gray-shadow': '0 0 0 1px #262626',
 };
 
 export const animations = {

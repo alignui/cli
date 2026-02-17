@@ -336,6 +336,11 @@ export const GLOBALS_CSS = `<% if (config.tailwind.prefix) { %>@import "tailwind
   --shadow-<%- key %>: <%- Array.isArray(value) ? value.join(', ') : value %>;
   <% }); %>
 
+  /* AlignUI Block Shadow System */
+  <% Object.entries(JSON.parse(blockShadows)).forEach(([key, value]) => { %>
+  --shadow-<%- key %>: <%- Array.isArray(value) ? value.join(',\\n    ') : value %>;
+  <% }); %>
+
   /* AlignUI Border Radius System - Dynamic from tokens.ts */
   <% Object.entries(JSON.parse(borderRadii)).forEach(([key, value]) => { %>
   --radius-<%- key %>: <%- value %>;
@@ -429,11 +434,15 @@ export const GLOBALS_CSS = `<% if (config.tailwind.prefix) { %>@import "tailwind
     --color-social-tidal: <%- social['tidal-dark'] %>;
     --color-social-amazon: <%- social['amazon-dark'] %>;
     --color-social-zendesk: <%- social['zendesk-dark'] %>;
+
+    <% Object.entries(JSON.parse(darkBlockShadows)).forEach(([key, value]) => { %>
+    --shadow-<%- key %>: <%- Array.isArray(value) ? value.join(',\\n      ') : value %>;
+    <% }); %>
   }
 }
 
 /* Class-based Dark Mode Support */
-  .dark {
+.dark {
   --color-bg-strong-950: var(--color-neutral-0);
   --color-bg-surface-800: var(--color-neutral-200);
   --color-bg-sub-300: var(--color-neutral-600);
@@ -513,6 +522,10 @@ export const GLOBALS_CSS = `<% if (config.tailwind.prefix) { %>@import "tailwind
   --color-social-tidal: <%- social['tidal-dark'] %>;
   --color-social-amazon: <%- social['amazon-dark'] %>;
   --color-social-zendesk: <%- social['zendesk-dark'] %>;
+
+  <% Object.entries(JSON.parse(darkBlockShadows)).forEach(([key, value]) => { %>
+  --shadow-<%- key %>: <%- Array.isArray(value) ? value.join(',\\n    ') : value %>;
+  <% }); %>
 }
 
 /* Keyframe Animations - AlignUI System */
@@ -523,7 +536,8 @@ export const GLOBALS_CSS = `<% if (config.tailwind.prefix) { %>@import "tailwind
 }
 
 @keyframes ping {
-  75%, 100% {
+  75%,
+  100% {
     transform: scale(2);
     opacity: 0;
   }
@@ -531,18 +545,19 @@ export const GLOBALS_CSS = `<% if (config.tailwind.prefix) { %>@import "tailwind
 
 @keyframes pulse {
   50% {
-    opacity: .5;
+    opacity: 0.5;
   }
 }
 
 @keyframes bounce {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(-25%);
-    animation-timing-function: cubic-bezier(0.8,0,1,1);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
   }
   50% {
     transform: none;
-    animation-timing-function: cubic-bezier(0,0,0.2,1);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
   }
 }
 
