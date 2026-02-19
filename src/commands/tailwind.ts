@@ -1,39 +1,35 @@
-import { existsSync, promises as fs } from 'fs';
-import path from 'path';
-import * as templates from '@/src/utils/templates';
+import { existsSync, promises as fs } from 'node:fs';
+import path from 'node:path';
+import { intro, isCancel, outro, select, spinner, text } from '@clack/prompts';
 import { Command } from 'commander';
 import { execa } from 'execa';
 import template from 'lodash.template';
 import { z } from 'zod';
-import { intro, outro, text, select, isCancel, spinner } from '@clack/prompts';
 import {
+  formatHslColor,
+  formatOklchColor,
+  formatRgbColor,
+} from '@/src/utils/color-helpers';
+import {
+  type Config,
   DEFAULT_TAILWIND_CONFIG,
   DEFAULT_TAILWIND_CSS,
-  DEFAULT_POSTCSS_CONFIG,
   rawConfigSchema,
   resolveConfigPaths,
-  type Config,
 } from '@/src/utils/get-config';
 import { getPackageManager } from '@/src/utils/get-package-manager';
 import { getProjectConfig, preFlight } from '@/src/utils/get-project-info';
-import {
-  rawHexColors,
-  tailwindColorsHex,
-  tailwindColorsHsl,
-  tailwindColorsRgb,
-  borderRadii,
-  texts,
-  shadows,
-  blockShadows,
-  darkBlockShadows,
-  animations,
-} from '@/src/utils/tokens';
 import { prettierFormat } from '@/src/utils/prettier';
+import * as templates from '@/src/utils/templates';
 import {
-  formatHslColor,
-  formatRgbColor,
-  formatOklchColor,
-} from '@/src/utils/color-helpers';
+  animations,
+  blockShadows,
+  borderRadii,
+  darkBlockShadows,
+  rawHexColors,
+  shadows,
+  texts,
+} from '@/src/utils/tokens';
 
 const PROJECT_DEV_DEPENDENCIES = [
   'tailwindcss@latest',
