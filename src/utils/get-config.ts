@@ -10,7 +10,7 @@ export const rawConfigSchema = z
     tailwind: z.object({
       config: z.string().optional(), // Optional in v4.1
       css: z.string(),
-      primaryColor: z.enum(['blue', 'purple', 'orange', 'sky']),
+      primaryColor: z.enum(['blue', 'purple', 'orange', 'green']),
       neutralColor: z.enum(['gray', 'slate']),
       colorFormat: z.enum(['hex', 'rgb', 'hsl', 'oklch']),
       prefix: z.string().default('').optional(),
