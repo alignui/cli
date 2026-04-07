@@ -231,7 +231,9 @@ export const GLOBALS_CSS = `<% if (config.tailwind.prefix) { %>@import "tailwind
   /* AlignUI Dynamic Primary Colors */
   --color-primary-dark: var(--color-<%- primaryColor %>-800);
   --color-primary-darker: var(--color-<%- primaryColor %>-700);
-  --color-primary-base: var(--color-<%- primaryColor %>-500);
+  --color-primary-base: var(--color-<%- primaryColor %>-<%- primaryBaseShade %>);
+  --color-primary-light: var(--color-<%- primaryColor %>-100);
+  --color-primary-lighter: var(--color-<%- primaryColor %>-50);
   --color-primary-alpha-24: var(--color-<%- primaryColor %>-alpha-24);
   --color-primary-alpha-16: var(--color-<%- primaryColor %>-alpha-16);
   --color-primary-alpha-10: var(--color-<%- primaryColor %>-alpha-10);
@@ -259,6 +261,7 @@ export const GLOBALS_CSS = `<% if (config.tailwind.prefix) { %>@import "tailwind
   --color-bg-sub-300: var(--color-neutral-300);
   --color-bg-soft-200: var(--color-neutral-200);
   --color-bg-weak-50: var(--color-neutral-50);
+  --color-bg-weak-25: var(--color-neutral-50);
   --color-bg-white-0: var(--color-neutral-0);
 
   --color-text-strong-950: var(--color-neutral-950);
@@ -359,7 +362,8 @@ export const GLOBALS_CSS = `<% if (config.tailwind.prefix) { %>@import "tailwind
     --color-bg-surface-800: var(--color-neutral-200);
     --color-bg-sub-300: var(--color-neutral-600);
     --color-bg-soft-200: var(--color-neutral-700);
-    --color-bg-weak-50: var(--color-neutral-900);
+    --color-bg-weak-50: var(--color-neutral-800);
+    --color-bg-weak-25: var(--color-neutral-900);
     --color-bg-white-0: var(--color-neutral-950);
 
     --color-text-strong-950: var(--color-neutral-0);
@@ -370,13 +374,13 @@ export const GLOBALS_CSS = `<% if (config.tailwind.prefix) { %>@import "tailwind
 
     --color-stroke-strong-950: var(--color-neutral-0);
     --color-stroke-sub-300: var(--color-neutral-600);
-    --color-stroke-soft-200: var(--color-neutral-700);
+    --color-stroke-soft-200: var(--color-neutral-800);
     --color-stroke-white-0: var(--color-neutral-950);
 
     --color-faded-dark: var(--color-neutral-300);
     --color-faded-base: var(--color-neutral-500);
     --color-faded-light: var(--color-neutral-alpha-24);
-    --color-faded-lighter: var(--color-neutral-alpha-16);
+    --color-faded-lighter: var(--color-neutral-alpha-10);
 
     --color-information-dark: var(--color-blue-400);
     --color-information-base: var(--color-blue-500);
@@ -395,8 +399,8 @@ export const GLOBALS_CSS = `<% if (config.tailwind.prefix) { %>@import "tailwind
 
     --color-success-dark: var(--color-green-400);
     --color-success-base: var(--color-green-600);
-    --color-success-light: var(--color-green-alpha-24);
-    --color-success-lighter: var(--color-green-alpha-16);
+    --color-success-light: var(--color-green-alpha-16);
+    --color-success-lighter: var(--color-green-alpha-10);
 
     --color-away-dark: var(--color-yellow-400);
     --color-away-base: var(--color-yellow-600);
@@ -423,6 +427,10 @@ export const GLOBALS_CSS = `<% if (config.tailwind.prefix) { %>@import "tailwind
     --color-stable-light: var(--color-teal-alpha-24);
     --color-stable-lighter: var(--color-teal-alpha-16);
 
+    <% if (primaryBaseDarkShade) { %>--color-primary-base: var(--color-<%- primaryColor %>-<%- primaryBaseDarkShade %>);
+    <% } %>--color-primary-light: var(--color-<%- primaryColor %>-alpha-16);
+    --color-primary-lighter: var(--color-<%- primaryColor %>-alpha-10);
+
     --color-overlay-gray: <%- overlay['gray-dark'] %>;
     --color-overlay-slate: <%- overlay['slate-dark'] %>;
     --color-overlay: var(--color-overlay-<%- neutralColor %>);
@@ -447,7 +455,8 @@ export const GLOBALS_CSS = `<% if (config.tailwind.prefix) { %>@import "tailwind
   --color-bg-surface-800: var(--color-neutral-200);
   --color-bg-sub-300: var(--color-neutral-600);
   --color-bg-soft-200: var(--color-neutral-700);
-  --color-bg-weak-50: var(--color-neutral-900);
+  --color-bg-weak-50: var(--color-neutral-800);
+  --color-bg-weak-25: var(--color-neutral-900);
   --color-bg-white-0: var(--color-neutral-950);
 
   --color-text-strong-950: var(--color-neutral-0);
@@ -458,13 +467,13 @@ export const GLOBALS_CSS = `<% if (config.tailwind.prefix) { %>@import "tailwind
 
   --color-stroke-strong-950: var(--color-neutral-0);
   --color-stroke-sub-300: var(--color-neutral-600);
-  --color-stroke-soft-200: var(--color-neutral-700);
+  --color-stroke-soft-200: var(--color-neutral-800);
   --color-stroke-white-0: var(--color-neutral-950);
 
   --color-faded-dark: var(--color-neutral-300);
   --color-faded-base: var(--color-neutral-500);
   --color-faded-light: var(--color-neutral-alpha-24);
-  --color-faded-lighter: var(--color-neutral-alpha-16);
+  --color-faded-lighter: var(--color-neutral-alpha-10);
 
   --color-information-dark: var(--color-blue-400);
   --color-information-base: var(--color-blue-500);
@@ -483,8 +492,8 @@ export const GLOBALS_CSS = `<% if (config.tailwind.prefix) { %>@import "tailwind
 
   --color-success-dark: var(--color-green-400);
   --color-success-base: var(--color-green-600);
-  --color-success-light: var(--color-green-alpha-24);
-  --color-success-lighter: var(--color-green-alpha-16);
+  --color-success-light: var(--color-green-alpha-16);
+  --color-success-lighter: var(--color-green-alpha-10);
 
   --color-away-dark: var(--color-yellow-400);
   --color-away-base: var(--color-yellow-600);
@@ -510,6 +519,10 @@ export const GLOBALS_CSS = `<% if (config.tailwind.prefix) { %>@import "tailwind
   --color-stable-base: var(--color-teal-600);
   --color-stable-light: var(--color-teal-alpha-24);
   --color-stable-lighter: var(--color-teal-alpha-16);
+
+  <% if (primaryBaseDarkShade) { %>--color-primary-base: var(--color-<%- primaryColor %>-<%- primaryBaseDarkShade %>);
+  <% } %>--color-primary-light: var(--color-<%- primaryColor %>-alpha-16);
+  --color-primary-lighter: var(--color-<%- primaryColor %>-alpha-10);
 
   --color-overlay-gray: <%- overlay['gray-dark'] %>;
   --color-overlay-slate: <%- overlay['slate-dark'] %>;

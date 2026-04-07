@@ -22,13 +22,15 @@ import { getProjectConfig, preFlight } from '@/src/utils/get-project-info';
 import { prettierFormat } from '@/src/utils/prettier';
 import * as templates from '@/src/utils/templates';
 import {
-  animations,
+  rawHexColors,
+  borderRadii,
+  texts,
+  shadows,
   blockShadows,
   borderRadii,
   darkBlockShadows,
-  rawHexColors,
-  shadows,
-  texts,
+  animations,
+  primaryThemeConfig,
 } from '@/src/utils/tokens';
 
 const PROJECT_DEV_DEPENDENCIES = [
@@ -81,7 +83,7 @@ async function promptForConfig(cwd: string, defaultConfig: Config) {
       { value: 'blue', label: 'Blue' },
       { value: 'purple', label: 'Purple' },
       { value: 'orange', label: 'Orange' },
-      { value: 'sky', label: 'Sky' },
+      { value: 'green', label: 'Green' },
     ],
   });
 
@@ -250,12 +252,18 @@ async function runInit(cwd: string, config: Config) {
           animations,
         };
 
+    const themeConfig =
+      primaryThemeConfig[config.tailwind.primaryColor] ??
+      primaryThemeConfig.blue;
+
     await fs.writeFile(
       config.resolvedPaths.tailwindCss,
       template(templates.GLOBALS_CSS)({
         config: config,
         primaryColor: config.tailwind.primaryColor,
         neutralColor: config.tailwind.neutralColor,
+        primaryBaseShade: themeConfig.baseShade,
+        primaryBaseDarkShade: themeConfig.baseDarkShade,
         ...colorVariables,
         texts: JSON.stringify(prefixedTokens.texts, null, 2),
         shadows: JSON.stringify(prefixedTokens.shadows, null, 2),
