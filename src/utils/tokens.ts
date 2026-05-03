@@ -577,6 +577,13 @@ export const blockShadows = {
     '0 0 0 1.4px #335cff',
   ],
   'gray-shadow': '0 0 0 1px rgba(23, 23, 23, 0.08)',
+  'gray-shadow-4': [
+    '0 6px 6px -3px rgba(23, 23, 23, 0.04)',
+    '0 3px 3px -1.5px rgba(23, 23, 23, 0.04)',
+    '0 1px 1px -0.5px rgba(23, 23, 23, 0.04)',
+    '0 0 0 1px rgba(23, 23, 23, 0.08)',
+    '0 -1px 1px -0.5px rgba(23, 23, 23, 0.04) inset',
+  ],
 };
 
 export const darkBlockShadows = {
@@ -675,6 +682,13 @@ export const darkBlockShadows = {
     '0 0 0 1.4px #335cff',
   ],
   'gray-shadow': '0 0 0 1px #262626',
+  'gray-shadow-4': [
+    '0 6px 6px -3px rgba(23, 23, 23, 0)',
+    '0 3px 3px -1.5px rgba(23, 23, 23, 0)',
+    '0 1px 1px -0.5px rgba(23, 23, 23, 0)',
+    '0 0 0 1px #262626',
+    '0 -1px 1px -0.5px rgba(23, 23, 23, 0) inset',
+  ],
 };
 
 export const animations = {
