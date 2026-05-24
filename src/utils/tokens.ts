@@ -486,6 +486,14 @@ export const blockShadows = {
     '0 80px 80px -40px rgba(23, 23, 23, 0.04)',
     '0 48px 48px -24px rgba(23, 23, 23, 0.04)',
   ],
+  'colored-gray': [
+    '0 20px 20px -10px rgba(23, 23, 23, 0.04)',
+    '0 10px 10px -5px rgba(23, 23, 23, 0.04)',
+    '0 6px 6px -3px rgba(23, 23, 23, 0.04)',
+    '0 3px 3px -1.5px rgba(23, 23, 23, 0.04)',
+    '0 1px 1px -0.5px rgba(23, 23, 23, 0.04)',
+    '0 0 0 1px rgba(23, 23, 23, 0.04)',
+  ],
   complex: [
     '0 20px 20px -10px rgba(23, 23, 23, 0.04)',
     '0 10px 10px -5px rgba(23, 23, 23, 0.04)',
@@ -590,6 +598,14 @@ export const darkBlockShadows = {
   'complex-12': [
     '0 80px 80px -40px rgba(23, 23, 23, 0)',
     '0 48px 48px -24px rgba(23, 23, 23, 0)',
+  ],
+  'colored-gray': [
+    '0 20px 20px -10px rgba(23, 23, 23, 0)',
+    '0 10px 10px -5px rgba(23, 23, 23, 0)',
+    '0 6px 6px -3px rgba(23, 23, 23, 0)',
+    '0 3px 3px -1.5px rgba(23, 23, 23, 0)',
+    '0 1px 1px -0.5px rgba(23, 23, 23, 0)',
+    '0 0 0 1px rgba(23, 23, 23, 0)',
   ],
   complex: [
     '0 20px 20px -10px rgba(23, 23, 23, 0)',
