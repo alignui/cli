@@ -573,6 +573,10 @@ export const blockShadows = {
     '0 1px 1px -0.5px rgba(23, 23, 23, 0.04)',
     '0 0 0 1px var(--color-bg-soft-200)',
   ],
+  'custom-input-3': [
+    '0 3px 3px -1.5px rgba(23, 23, 23, 0.06)',
+    '0 1px 1px -0.5px rgba(23, 23, 23, 0.06)',
+  ],
   'custom-input-4': [
     '0 3px 3px -1.5px rgba(23, 23, 23, 0.06)',
     '0 1px 1px -0.5px rgba(23, 23, 23, 0.06)',
@@ -685,6 +689,10 @@ export const darkBlockShadows = {
     '0 3px 3px -1.5px rgba(23, 23, 23, 0)',
     '0 1px 1px -0.5px rgba(23, 23, 23, 0)',
     '0 0 0 1px #262626',
+  ],
+  'custom-input-3': [
+    '0 3px 3px -1.5px rgba(23, 23, 23, 0.06)',
+    '0 1px 1px -0.5px rgba(23, 23, 23, 0.06)',
   ],
   'custom-input-4': [
     '0 3px 3px -1.5px rgba(23, 23, 23, 0.04)',
