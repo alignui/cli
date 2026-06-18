@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-import { initTailwind } from '@/src/commands/tailwind';
 import { Command } from 'commander';
+import { initTailwind } from '@/src/commands/tailwind';
 
 import { getPackageInfo } from './utils/get-package-info';
 
@@ -9,7 +9,7 @@ process.on('SIGINT', () => process.exit(0));
 process.on('SIGTERM', () => process.exit(0));
 
 async function main() {
-  const packageInfo = await getPackageInfo();
+  const packageInfo = getPackageInfo();
 
   const program = new Command()
     .name('alignui-cli')

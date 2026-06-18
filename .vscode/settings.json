@@ -1,5 +1,5 @@
 {
-"editor.tabSize": 2,
+  "editor.tabSize": 2,
   "editor.indentSize": 2,
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -11,5 +11,8 @@
     {
       "mode": "auto"
     }
-  ]
+  ],
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

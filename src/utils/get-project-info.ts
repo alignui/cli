@@ -1,7 +1,11 @@
-import path from 'path';
-import { Config, RawConfig, resolveConfigPaths } from '@/src/utils/get-config';
+import path from 'node:path';
 import fg from 'fast-glob';
 import fs, { pathExists } from 'fs-extra';
+import {
+  type Config,
+  type RawConfig,
+  resolveConfigPaths,
+} from '@/src/utils/get-config';
 
 const PROJECT_SHARED_IGNORE = [
   '**/node_modules/**',
@@ -49,10 +53,13 @@ export async function getTailwindCssFile(cwd: string) {
 
   for (const file of files) {
     const contents = await fs.readFile(path.resolve(cwd, file), 'utf8');
+
     // Check for both v3 (@tailwind base) and v4 (@import "tailwindcss") formats
     if (
       contents.includes('@tailwind base') ||
-      contents.includes('@import "tailwindcss"')
+      // allow both single and double quotes to be used
+      contents.includes('@import "tailwindcss"') ||
+      contents.includes("@import 'tailwindcss'")
     ) {
       return file;
     }
